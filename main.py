@@ -73,13 +73,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "💎 ❄️ Anni 🍁 🌿\n\n"
         "❄️ ☃️ 🌿 🥦 🐴 🚛 🍄 🌈\n\n"
         "Click here to shop now.",
-        reply_markup=ReplyKeyboardMarkup(
-            [[KeyboardButton("DM to shop")]],
-            resize_keyboard=True
-        )
-    )
-    await update.message.reply_text(
-        "Tap below to contact the shop:",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("DM to shop", url="https://t.me/highplugaus")]]
         )
