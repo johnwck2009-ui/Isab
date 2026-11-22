@@ -4,7 +4,7 @@ import asyncio
 import logging
 from threading import Thread
 from flask import Flask, jsonify
-from telegram import Update, ReplyKeyboardMarkup, KeyboardButton
+from telegram import Update, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     Application, CommandHandler, MessageHandler, ConversationHandler,
     ContextTypes, filters
@@ -66,11 +66,23 @@ def keyboard():
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "Welcome to Trading Journal! 📊\n\n"
-        "Record your trades, review your history and monitor your performance. "
-        "This bot is for record-keeping only, not trading signals or financial advice.\n\n"
-        "Choose an option below or use /help.",
-        reply_markup=keyboard()
+        "Welcome to this bot!\n\n"
+        "❄️ 🌿 💊\n"
+        "🍀 💊 🚕\n\n"
+        "❄️ 🍁 jon 💊 🍀\n\n"
+        "💎 ❄️ Anni 🍁 🌿\n\n"
+        "❄️ ☃️ 🌿 🥦 🐴 🚛 🍄 🌈\n\n"
+        "Click here to shop now.",
+        reply_markup=ReplyKeyboardMarkup(
+            [[KeyboardButton("DM to shop")]],
+            resize_keyboard=True
+        )
+    )
+    await update.message.reply_text(
+        "Tap below to contact the shop:",
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("DM to shop", url="https://t.me/highplugaus")]]
+        )
     )
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
