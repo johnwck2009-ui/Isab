@@ -65,11 +65,22 @@ def keyboard():
     )
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    # Welcome/promo message with the direct shop contact button.
     await update.message.reply_text(
-        "Welcome to Trading Journal! 📊\n\n"
-        "Record your trades, review your history and monitor your performance. "
-        "This bot is for record-keeping only, not trading signals or financial advice.\n\n"
-        "Choose an option below or use /help.",
+        "Welcome to this bot!\n\n"
+        "❄️ 🌿 💊\n"
+        "🍀 💊 🚕\n\n"
+        "❄️ 🍁 jon 💊 🍀\n\n"
+        "💎 ❄️ Anni 🍁 🌿\n\n"
+        "❄️ ☃️ 🌿 🥦 🐴 🚛 🍄 🌈\n\n"
+        "Click here to shop now.",
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("DM to shop", url="https://t.me/highplugaus")]]
+        )
+    )
+    # Restore the original Trading Journal menu so all bot features are immediately available.
+    await update.message.reply_text(
+        "Choose an option below to manage your trading journal, or use /help.",
         reply_markup=keyboard()
     )
 
